@@ -158,17 +158,6 @@
       filter: brightness(1.1);
     }
 
-    .step-number {
-      font-size: 4rem;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.03);
-      position: absolute;
-      top: 2rem;
-      left: 2rem;
-      z-index: 0;
-      line-height: 1;
-    }
-
     @media (max-width: 768px) {
       h2 { font-size: 1.75rem; }
       .hero-section { padding: 3rem 0; min-height: auto; }
@@ -235,10 +224,9 @@
 
   const root = document.getElementById("root");
 
-  sections.forEach((s, i) => {
+  sections.forEach((s) => {
     root.innerHTML += `
       <section class="hero-section">
-        <div class="step-number">${i+1 < 10 ? "0"+(i+1) : i+1}</div>
         <div class="container hero-content">
 
           <div class="img-placeholder">
