@@ -1,237 +1,72 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Treinamento – Apps e Sites com IA</title>
-
-  <!-- Fonte -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg-dark: #0f172a;
-      --bg-card: #1e293b;
-      --primary-accent: #06b6d4;
-      --secondary-accent: #3b82f6;
-      --text-light: #f8fafc;
-      --text-gray: #cbd5e1;
-      --font-family: 'Poppins', sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: var(--font-family);
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      text-align: center;
-    }
-
-    .hero-section {
-      padding: 4rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .hero-section:nth-child(even) {
-      background-color: #131c31;
-    }
-
-    h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      line-height: 1.2;
-      background: linear-gradient(90deg, #fff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.125rem;
-      color: var(--text-gray);
-      max-width: 700px;
-      margin: 0.5rem auto 1.5rem auto;
-    }
-
-    strong { color: var(--primary-accent); }
-
-    /* 🔥 PADRONIZAÇÃO DAS IMAGENS — 700×510px */
-    .hero-section img {
-      width: 100%;
-      max-width: 700px;
-      height: 510px;
-      object-fit: cover;
-      border-radius: 16px;
-      margin: 0 auto 1rem auto;
-      display: block;
-    }
-
-    /* Placeholder */
-    .img-placeholder {
-      width: 100%;
-      max-width: 700px;
-      height: 510px !important;
-      border: 2px dashed rgba(6, 182, 212, 0.3);
-      border-radius: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      overflow: hidden;
-      margin: 0 auto 1.5rem auto;
-    }
-
-    .img-label {
-      background: rgba(0,0,0,0.6);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      font-family: monospace;
-      color: var(--primary-accent);
-    }
-
-    /* CTA / Oferta */
-    .offer-container {
-      background: rgba(30, 41, 59, 0.6);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      padding: 2rem;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 500px;
-      margin: 1rem auto 0 auto;
-      backdrop-filter: blur(5px);
-    }
-
-    .price-tag {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary-accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .price-sub {
-      font-size: 0.9rem;
-      color: #94a3b8;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-button {
-      display: block;
-      width: 100%;
-      background: linear-gradient(90deg, var(--primary-accent), #3b82f6);
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-      transition: 0.3s;
-    }
-
-    .cta-button:hover {
-      filter: brightness(1.1);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      padding: 3rem 2rem;
-      text-align: center;
-      color: #94a3b8;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 2rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      h2 { font-size: 1.75rem; }
-    }
-  </style>
-</head>
-<body>
-
-<div id="root"></div>
-
-<script>
-  const sections = [
-    { image: "hero-principal.png", title: "Crie Apps e Sites com IA e Gere Renda Extra",
-      text: "O método simples para transformar seu tempo livre em uma nova fonte de renda, usando ferramentas gratuitas, mesmo começando do zero. Pare de apenas consumir tecnologia e comece a lucrar com ela hoje mesmo.",
-      cta: "QUERO DESCOBRIR COMO" },
-
-    { image: "sem-programacao.png", title: "Esqueça Códigos Complicados",
-      text: "Você não precisa ser um programador. A Inteligência Artificial faz o trabalho pesado; você só precisa saber dar o comando certo. É o fim da barreira técnica que te impedia de criar.",
-      cta: "QUERO COMEÇAR AGORA" },
-
-    { image: "oportunidade-mercado.png", title: "O Mercado Precisa de Você",
-      text: "Milhares de empresas precisam de sites e apps simples hoje. Poucas pessoas sabem entregar isso rápido e barato usando IA. O que vou te ensinar neste treinamento vai ter colocar na frente de muitas pessoas.",
-      cta: "QUERO APROVEITAR A OPORTUNIDADE" },
-
-    { image: "metodo-codigo.png", title: "O Código do Novo Digital",
-      text: "Meu método exclusivo onde descodifico as possibilidades digitais e traduzo tudo de forma clara, objetiva e prática para você.",
-      cta: "QUERO CONHECER O MÉTODO" },
-
-    { image: "o-que-aprende.png", title: "O Que Você Vai Dominar",
-      text: "Desde criar sites profissionais com animação até construir aplicativos inteligentes. Adquira habilidades que valem ouro.",
-      cta: "QUERO APRENDER TUDO ISSO" },
-
-    { image: "diferenciais.png", title: "Por Que Esse Treinamento é Único",
-      text: "Sou direta, prática e vou te mostrar o caminho completo, do zero ao avançado.",
-      cta: "QUERO ESSE DIFERENCIAL" },
-
-    { image: "detalhes-evento.png", title: "Treinamento Ao Vivo: 29 de Novembro",
-      text: "Sábado às 14h. Online, com demonstrações práticas e replay garantido.",
-      cta: "VOU ESTAR LÁ" },
-
-    { image: "bonus-venda.png", title: "Bônus Exclusivo",
-      text: "Receba o 'Guia Prático': passo a passo para vender infoprodutos na Kiwify.",
-      cta: "QUERO GARANTIR MEU BÔNUS" },
-
-    { image: "adriele-bio.jpg", title: "Com Adriele Almeida",
-      text: "Estrategista Digital com mais de 20 anos de experiência.",
-      cta: "QUERO APRENDER COM A ADRIELE" },
-
-    { image: "garantia-final.png", title: "Sua Chance é Agora",
-      text: "Não deixe para depois. Vagas limitadas.",
-      cta: "COMPRAR AGORA - ACESSO IMEDIATO" }
-  ];
-
-  const root = document.getElementById("root");
-
-  sections.forEach(sec => {
-    root.innerHTML += `
-      <section class="hero-section">
-        <div class="container hero-content">
-          
-          <img src="${sec.image}" alt="${sec.title}" />
-
-          <h2>${sec.title}</h2>
-          <p>${sec.text}</p>
-
-          <div class="offer-container">
-            <span class="price-tag">12x de R$ 15,50</span>
-            <span class="price-sub">ou R$ 149,90 no Pix</span>
-            <a href="https://pay.kiwify.com.br/JamocOx" class="cta-button">${sec.cta}</a>
-          </div>
-
-        </div>
-      </section>
-    `;
-  });
-
-  root.innerHTML += `
-    <footer>
-      © 2025 ALMEIDA SOLUCOES ESTRATEGICAS DIGITAIS LTDA.  
-      <br>Todos os direitos reservados.
-    </footer>
-  `;
-</script>
-
-</body>
-</html>
+const sections = [
+  {
+    id: 1,
+    imageName: "hero-principal.png",
+    title: "Crie Apps e Sites com IA e Gere Renda Extra",
+    text: "O método simples para transformar seu tempo livre em uma nova fonte de renda, usando ferramentas gratuitas, mesmo começando do zero. Pare de apenas consumir tecnologia e comece a lucrar com ela hoje mesmo.",
+    cta: "QUERO DESCOBRIR COMO"
+  },
+  {
+    id: 2,
+    imageName: "sem-programacao.png",
+    title: "Esqueça Códigos Complicados",
+    text: "Você não precisa ser um programador. A Inteligência Artificial faz o trabalho pesado; você só precisa saber dar o comando certo. É o fim da barreira técnica que te impedia de criar.",
+    cta: "QUERO COMEÇAR AGORA"
+  },
+  {
+    id: 3,
+    imageName: "oportunidade-mercado.png",
+    title: "O Mercado Precisa de Você",
+    text: "Milhares de empresas precisam de sites e apps simples hoje. Poucas pessoas sabem entregar isso rápido e barato usando IA. O que vou te ensinar neste treinamento vai te colocar na frente de muitas pessoas.",
+    cta: "QUERO APROVEITAR A OPORTUNIDADE"
+  },
+  {
+    id: 4,
+    imageName: "metodo-codigo.png",
+    title: "O Código do Novo Digital",
+    text: "Meu método exclusivo onde descodifico as possibilidades digitais e traduzo tudo de forma clara, objetiva e prática para você. Não é teoria, é um mapa validado para o seu sucesso.",
+    cta: "QUERO CONHECER O MÉTODO"
+  },
+  {
+    id: 5,
+    imageName: "o-que-aprende.png",
+    title: "O Que Você Vai Dominar",
+    text: "Desde criar sites profissionais com animação até construir aplicativos inteligentes. Adquira habilidades que valem ouro e que ninguém pode tirar de você.",
+    cta: "QUERO APRENDER TUDO ISSSO"
+  },
+  {
+    id: 6,
+    imageName: "diferenciais.png",
+    title: "Por Que Esse Treinamento é Único",
+    text: "O que vou apresentar vai mudar seu jogo no mundo digital. Não vou fingir que vou te ensinar para te empurrar outro curso mais caro. Sou direta, prática e vou te mostrar o caminho completo, do zero ao avançado.",
+    cta: "QUERO ESSE DIFERENCIAL"
+  },
+  {
+    id: 7,
+    imageName: "detalhes-evento.png",
+    title: "Treinamento Ao Vivo: 29 de Novembro",
+    text: "Sábado às 14h. Formato online, ao vivo, com demonstrações práticas e acesso à gravação (Replay). Reserve este dia para descodificar sua vida no Marketing Digital.",
+    cta: "VOU ESTAR LÁ"
+  },
+  {
+    id: 8,
+    imageName: "bonus-venda.png",
+    title: "Bônus Exclusivo",
+    text: "Receba o “Guia Prático”: o passo a passo de como vender infoprodutos na Kiwify. Você vai aprender a transformar suas criações em uma máquina de vendas.",
+    cta: "QUERO GARANTIR MEU BÔNUS"
+  },
+  {
+    id: 9,
+    imageName: "adriele-bio.jpg",
+    title: "Com Adriele Almeida",
+    text: "Estrategista Digital com mais de 20 anos de experiência. Minha missão é te ensinar a transformar conhecimento em resultado real. Aprenda com quem começou do absoluto ZERO e hoje está descodificando O Código do Novo Digital pra você! Estrategista com prática de mercado e que vive o campo de batalha digital diariamente.",
+    cta: "QUERO APRENDER COM A ADRIELE"
+  },
+  {
+    id: 10,
+    imageName: "garantia-final.png",
+    title: "Sua Chance é Agora",
+    text: "Não deixe para depois. Vagas limitadas.",
+    cta: "COMPRAR AGORA – ACESSO IMEDIATO"
+  }
+];
