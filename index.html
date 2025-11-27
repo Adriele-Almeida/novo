@@ -9,57 +9,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-
     :root {
       --bg-dark: #0f172a;
-      --bg-alt: #131c31;
-      --primary: #06b6d4;
-      --secondary: #3b82f6;
+      --bg-card: #1e293b;
+      --primary-accent: #06b6d4;
+      --secondary-accent: #3b82f6;
       --text-light: #f8fafc;
       --text-gray: #cbd5e1;
-      --font: 'Poppins', sans-serif;
+      --font-family: 'Poppins', sans-serif;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: var(--font);
-      background: var(--bg-dark);
+      font-family: var(--font-family);
+      background-color: var(--bg-dark);
       color: var(--text-light);
       line-height: 1.6;
     }
 
-    .section {
-      padding: 3rem 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .section:nth-child(even) {
-      background: var(--bg-alt);
-    }
-
     .container {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .img-placeholder {
-      width: 100%;
-      height: 260px;
-      border: 2px dashed rgba(6, 182, 212, 0.3);
-      border-radius: 14px;
-      margin-bottom: 1.5rem;
+    .hero-section {
+      min-height: 90vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      color: var(--text-gray);
+      justify-content: center;
+      padding: 4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+
+    .hero-section:nth-child(even) {
+      background-color: #131c31;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
     }
 
     h2 {
-      font-size: 1.9rem;
+      font-size: 2.25rem;
       font-weight: 700;
+      line-height: 1.2;
       background: linear-gradient(90deg, #fff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -67,55 +71,100 @@
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       color: var(--text-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    strong {
+      color: var(--primary-accent);
+    }
+
+    .img-placeholder {
+      width: 100%;
+      max-width: 700px;
+      height: 350px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 2px dashed rgba(6, 182, 212, 0.3);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-gray);
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    .img-label {
+      background: rgba(0,0,0,0.6);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      color: var(--primary-accent);
+    }
+
+    .offer-container {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      padding: 2rem;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 500px;
+      margin-top: 1rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .price-tag {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-accent);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+    }
+
+    .price-sub {
+      display: block;
+      font-size: 0.9rem;
+      color: #94a3b8;
       margin-bottom: 1.5rem;
     }
 
-    .offer {
-      background: rgba(30, 41, 59, 0.6);
-      padding: 1.8rem;
-      border-radius: 14px;
-      margin-top: 1rem;
-      border: 1px solid rgba(6, 182, 212, 0.25);
-    }
-
-    .price {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-    }
-
-    .subprice {
-      font-size: 0.95rem;
-      color: #9ca3af;
-      margin-bottom: 1.3rem;
-    }
-
-    .btn {
+    .cta-button {
       display: block;
       width: 100%;
+      background: linear-gradient(90deg, var(--primary-accent), #3b82f6);
+      color: white;
       padding: 1rem;
-      border-radius: 10px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
-      font-weight: 700;
+      border-radius: 8px;
       text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
       text-transform: uppercase;
-      letter-spacing: .5px;
-      margin-top: .5rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
     }
 
-    footer {
-      text-align: center;
-      padding: 2.5rem 1rem;
-      color: #94a3b8;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      margin-top: 2rem;
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.4);
+      filter: brightness(1.1);
     }
 
+    /* REMOVIDO: step-number */
+    
+    @media (max-width: 768px) {
+      h2 { font-size: 1.75rem; }
+      .hero-section { padding: 3rem 0; min-height: auto; }
+      .img-placeholder { height: 250px; }
+    }
   </style>
 </head>
 <body>
@@ -124,123 +173,75 @@
 
 <script>
   const sections = [
-
-    /* 1 — HERO ATENÇÃO */
-    {
-      image: "hero-principal.png",
+    { id: 1, imageName: "hero-principal.png",
       title: "Crie Apps e Sites com IA e Gere Renda Extra",
       text: "O método simples para transformar seu tempo livre em uma nova fonte de renda, usando ferramentas gratuitas, mesmo começando do zero. Pare de apenas consumir tecnologia e comece a lucrar com ela hoje mesmo.",
-    },
+      cta: "QUERO DESCOBRIR COMO" },
 
-    /* 2 — INTERESSE (unificado) */
-    {
-      image: "sem-programacao.png",
-      title: "Esqueça códigos complicados",
-      text: `
-        Você não precisa ser um programador. A Inteligência Artificial faz o trabalho pesado.<br><br>
-        Milhares de empresas precisam de sites e apps simples hoje. Poucas pessoas sabem entregar isso rápido e barato usando IA.
-      `,
-    },
+    { id: 2, imageName: "sem-programacao.png",
+      title: "Esqueça Códigos Complicados",
+      text: "Você não precisa ser um programador. A Inteligência Artificial faz o trabalho pesado; você só precisa saber dar o comando certo. É o fim da barreira técnica que te impedia de criar.",
+      cta: "QUERO COMEÇAR AGORA" },
 
-    /* 3 — DESEJO (unificado) */
-    {
-      image: "metodo-codigo.png",
-      title: "O Código do Novo Digital + O que você vai aprender",
-      text: `
-        Meu método exclusivo onde descodifico as possibilidades digitais e traduzo tudo para você.<br><br>
-        Desde criar sites profissionais com animação até construir aplicativos inteligentes.
-      `,
-    },
+    { id: 3, imageName: "oportunidade-mercado.png",
+      title: "O Mercado Precisa de Você",
+      text: "Milhares de empresas precisam de sites e apps simples hoje. Poucas pessoas sabem entregar isso rápido e barato usando IA. O que vou te ensinar neste treinamento vai ter colocar na frente de muitas pessoas.",
+      cta: "QUERO APROVEITAR A OPORTUNIDADE" },
 
-    /* 4 — CONVICÇÃO */
-    {
-      image: "diferenciais.png",
-      title: "Por que esse treinamento é único",
-      text: "Sou direta, prática e vou te mostrar o caminho completo, do zero ao avançado. Não vou fingir que vou te ensinar para te empurrar outro curso mais caro.",
-    },
+    { id: 4, imageName: "metodo-codigo.png",
+      title: "O Código do Novo Digital",
+      text: "Meu método exclusivo onde descodifico as possibilidades digitais e traduzo tudo de forma clara, objetiva e prática para você. Não é teoria, é um mapa validado para o seu sucesso.",
+      cta: "QUERO CONHECER O MÉTODO" },
 
-    /* 5 — HERO COMO FUNCIONA */
-    {
-      image: "como-funciona.png",
-      title: "Como Funciona",
-      text: `
-        Simples e direto<br><br>
+    { id: 5, imageName: "o-que-aprende.png",
+      title: "O Que Você Vai Dominar",
+      text: "Desde criar sites profissionais com animação até construir aplicativos inteligentes. Adquira habilidades que valem ouro e que ninguém pode tirar de você.",
+      cta: "QUERO APRENDER TUDO ISSO" },
 
-        Você realizará a compra do acesso pela Kiwify e, no dia do treinamento, receberá o link para participar da aula ao vivo.<br><br>
+    { id: 6, imageName: "diferenciais.png",
+      title: "Por Que Esse Treinamento é Único",
+      text: "O que vou apresentar vai mudar seu jogo no mundo digital. Não vou fingir que vou te ensinar para te empurrar outro curso mais caro. Sou direta, prática e vou te mostrar o caminho completo, do zero ao avançado",
+      cta: "QUERO ESSE DIFERENCIAL" },
 
-        A gravação ficará disponível posteriormente, permitindo que você assista quantas vezes desejar.<br><br>
+    { id: 7, imageName: "detalhes-evento.png",
+      title: "Treinamento Ao Vivo: 29 de Novembro",
+      text: "Sábado às 14h. Formato online, ao vivo, com demonstrações práticas e acesso  à gravação (Replay). Reserve este dia para descodificar sua vida no Marketing Ditial.",
+      cta: "VOU ESTAR LÁ" },
 
-        <strong>Formato:</strong> Online, ao vivo, com demonstrações práticas<br>
-        <strong>Replay:</strong> Acesso garantido para todos os inscritos, sem limite de visualizações<br>
-        <strong>Bônus:</strong> Guia completo e estruturado para você repetir cada passo depois da aula"
-      `,
-    },
+    { id: 8, imageName: "bonus-venda.png",
+      title: "Bônus Exclusivo",
+      text: "Receba o 'Guia Prático': o passo a passo de como vender infoprodutos na Kiwify. Você vai aprender a transformar suas criações em uma máquina de vendas.",
+      cta: "QUERO GARANTIR MEU BÔNUS" },
 
-    /* 6 — HERO VAGAS LIMITADAS (NOVO, SEPARADO) */
-    {
-      image: "vagas-limitadas.png",
-      title: "Vagas Limitadas",
-      text: `
-        Este é o tipo de conhecimento que abre portas imediatamente.<br><br>
-
-        A Inteligência Artificial é algo que não volta mais atrás.<br><br>
-
-        Você pode criar seu primeiro site ou app ainda esta semana — e começar a vender no mesmo dia.
-      `,
-    },
-
-    /* 7 — AUTORIDADE + CHAMADA FINAL */
-    {
-      image: "adriele-bio.jpg",
+    { id: 9, imageName: "adriele-bio.jpg",
       title: "Com Adriele Almeida",
-      text: `
-        Estrategista Digital com mais de 20 anos de experiência.<br>
-        Minha missão é te ensinar a transformar conhecimento em resultado real.<br><br>
+      text: "Estrategista Digital com mais de 20 anos de experiência. Minha missão é te ensinar a transformar conhecimento em resultado real. Aprenda com quem começou do absoluto ZERO e hoje esta descodificando O Código do Novo Digital pra você!",
+      cta: "QUERO APRENDER COM A ADRIELE" },
 
-        <strong>Treinamento Ao Vivo – 29 de Novembro</strong><br>
-        Sábado às 14h. Online, prático e com replay liberado.<br><br>
-
-        <strong>Bônus exclusivo:</strong> Guia prático para vender infoprodutos na Kiwify.<br><br>
-
-        Não deixe para depois. Vagas limitadas.<br>
-      `,
-    },
-
+    { id: 10, imageName: "garantia-final.png",
+      title: "Sua Chance é Agora",
+      text: "Não deixe para depois. Vagas limitadas.",
+      cta: "COMPRAR AGORA - ACESSO IMEDIATO" }
   ];
 
   const root = document.getElementById("root");
 
   sections.forEach((s) => {
     root.innerHTML += `
-      <section class="section">
-        <div class="container">
+      <section class="hero-section">
+        <div class="container hero-content">
 
           <div class="img-placeholder">
-            <div style="font-size:2.5rem;margin-bottom:0.5rem">🖼️</div>
-            <div style="font-family:monospace;color:#06b6d4">${s.image}</div>
+            <div style="font-size:3rem;margin-bottom:1rem">🖼️</div>
+            <div class="img-label">${s.imageName}</div>
+            <small style="margin-top:0.5rem;opacity:0.7">Sugestão: 700x350px</small>
           </div>
 
-          <h2>${s.title}</h2>
-          <p>${s.text}</p>
-
-          <div class="offer">
-            <div class="price">12x de R$ 15,50</div>
-            <div class="subprice">ou R$ 149,90 no Pix</div>
-            <a href="https://pay.kiwify.com.br/JamocOx" class="btn">Quero garantir minha vaga</a>
+          <div>
+            <h2>${s.title}</h2>
+            <p>${s.text}</p>
           </div>
 
-        </div>
-      </section>
-    `;
-  });
-
-  root.innerHTML += `
-    <footer>
-      © 2025 ALMEIDA SOLUCOES ESTRATEGICAS DIGITAIS LTDA.  
-      <br>Todos os direitos reservados.
-    </footer>
-  `;
-</script>
-
-</body>
-</html>
+          <div class="offer-container">
+            <span class="price-tag">12x de R$ 15,50</span>
+            <span class="pri
